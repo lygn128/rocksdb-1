@@ -2349,7 +2349,7 @@ class Duration {
 };
 
 class Benchmark {
- private:
+ public:
   std::shared_ptr<Cache> cache_;
   std::shared_ptr<Cache> compressed_cache_;
   std::shared_ptr<const FilterPolicy> filter_policy_;
@@ -7253,6 +7253,67 @@ class Benchmark {
     }
   }
 };
+
+int mytest(int argc, char** argv) {
+  std::cout << argc << " " << argv << std::endl;
+  // ROCKSDB_NAMESPACE::port::InstallStackTraceHandler();
+  // static bool initialized = false;
+  // if (!initialized) {
+  //   SetUsageMessage(std::string("\nUSAGE:\n") + std::string(argv[0]) +
+  //                   " [OPTIONS]...");
+  //   initialized = true;
+  // }
+  // ParseCommandLineFlags(&argc, &argv, true);
+  // if (!FLAGS_env_uri.empty()) {
+  //   Status s = Env::LoadEnv(FLAGS_env_uri, &FLAGS_env, &env_guard);
+  //   if (FLAGS_env == nullptr) {
+  //     fprintf(stderr, "No Env registered for URI: %s\n", FLAGS_env_uri.c_str());
+  //     exit(1);
+  //   }
+  // } else if (!FLAGS_fs_uri.empty()) {
+  //   std::shared_ptr<FileSystem> fs;
+  //   Status s = FileSystem::Load(FLAGS_fs_uri, &fs);
+  //   if (fs == nullptr) {
+  //     fprintf(stderr, "Error: %s\n", s.ToString().c_str());
+  //     exit(1);
+  //   }
+  //   FLAGS_env = GetCompositeEnv(fs);
+  // }
+
+  // if (!FLAGS_spdk.empty()) {
+  //   FLAGS_env =
+  //       rocksdb::NewSpdkEnv(rocksdb::Env::Default(), FLAGS_db, FLAGS_spdk,
+  //                           FLAGS_spdk_bdev, FLAGS_spdk_cache_size);
+  //   if (FLAGS_env == NULL) {
+  //     fprintf(stderr,
+  //             "Could not load SPDK blobfs - check that SPDK mkfs was run "
+  //             "against block device %s.\n",
+  //             FLAGS_spdk_bdev.c_str());
+  //     exit(1);
+  //   }
+  // }
+
+  // if (FLAGS_db.empty()) {
+  //   std::string default_db_path;
+  //   FLAGS_env->GetTestDirectory(&default_db_path);
+  //   default_db_path += "/dbbench";
+  //   FLAGS_db = default_db_path;
+  // }
+  // Status s;
+
+  // ROCKSDB_NAMESPACE::Benchmark* benchmark = new ROCKSDB_NAMESPACE::Benchmark;
+  
+  // s = DB::Open(benchmark->open_options_, FLAGS_db, &benchmark->db_.db);
+  // std::cout << "status is:" << s.ok() << std::endl;
+
+
+  // delete benchmark;
+
+  // if (!FLAGS_spdk.empty()) {
+  //   delete FLAGS_env;
+  // }
+  return 0;
+}
 
 int db_bench_tool(int argc, char** argv) {
   ROCKSDB_NAMESPACE::port::InstallStackTraceHandler();

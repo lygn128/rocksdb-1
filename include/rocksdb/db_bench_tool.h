@@ -8,4 +8,5 @@
 
 namespace ROCKSDB_NAMESPACE {
 int db_bench_tool(int argc, char** argv);
+int mytest(int argc, char** argv);
 }  // namespace ROCKSDB_NAMESPACE
