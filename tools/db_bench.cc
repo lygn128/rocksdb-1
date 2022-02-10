@@ -16,6 +16,6 @@ int main() {
 #else
 #include <rocksdb/db_bench_tool.h>
 int main(int argc, char** argv) {
-  return ROCKSDB_NAMESPACE::db_bench_tool(argc, argv);
+  return ROCKSDB_NAMESPACE::mytest(argc, argv);
 }
 #endif  // GFLAGS
