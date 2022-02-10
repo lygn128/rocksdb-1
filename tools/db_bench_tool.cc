@@ -7307,11 +7307,12 @@ int mytest(int argc, char** argv) {
   ROCKSDB_NAMESPACE::Benchmark* benchmark = new ROCKSDB_NAMESPACE::Benchmark;
   
   s = DB::Open(benchmark->open_options_, FLAGS_db, &benchmark->db_.db);
-  std::cout << "status is:" << s.ok() << std::endl;
+  assert(s.ok());
 
 
   rocksdb::DB* db = benchmark->db_.db;
-  s = db->Put(WriteOptions(), "key1", "value");
+  std::cout << "status is:" << s.ok() << << << std::endl;
+  s = benchmark->db_.db->Put(WriteOptions(), "key1", "value");
   assert(s.ok());
 
   std::string value;
