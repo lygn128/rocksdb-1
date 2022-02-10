@@ -84,6 +84,9 @@ using GFLAGS_NAMESPACE::ParseCommandLineFlags;
 using GFLAGS_NAMESPACE::RegisterFlagValidator;
 using GFLAGS_NAMESPACE::SetUsageMessage;
 
+using namespace ROCKSDB_NAMESPACE;
+
+
 DEFINE_string(
     benchmarks,
     "fillseq,"
@@ -7305,6 +7308,17 @@ int mytest(int argc, char** argv) {
   
   s = DB::Open(benchmark->open_options_, FLAGS_db, &benchmark->db_.db);
   std::cout << "status is:" << s.ok() << std::endl;
+
+
+  rocksdb::DB* db = benchmark->db_.db;
+  s = db->Put(WriteOptions(), "key1", "value");
+  assert(s.ok());
+
+  std::string value;
+  s = db->Get(ReadOptions(), "key1", &value);
+  assert(s.ok());
+  assert(value == "value");
+  
 
 
   delete benchmark;
